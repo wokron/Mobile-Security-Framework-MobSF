@@ -307,6 +307,8 @@ def static_analyzer(request, checksum, api=False):
                     app_dic['app_path'],
                     app_dic['md5'])
             template = 'static_analysis/android_binary_analysis.html'
+            context["strings"] = {}
+            context["files"] = []
             if api:
                 return context
             else:
