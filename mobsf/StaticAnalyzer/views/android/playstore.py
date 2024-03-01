@@ -16,19 +16,20 @@ logger = logging.getLogger(__name__)
 
 def get_app_details(package_id):
     """Get App Details form PlayStore."""
-    try:
-        logger.info('Fetching Details from Play Store: %s', package_id)
-        det = app(package_id)
-        det.pop('descriptionHTML', None)
-        det.pop('comments', None)
-        description = BeautifulSoup(det['description'], features='lxml')
-        det['description'] = description.get_text()
-        det['error'] = False
-        if 'androidVersionText' not in det:
-            det['androidVersionText'] = ''
-    except Exception:
-        det = app_search(package_id)
-    return det
+    # try:
+    #     logger.info('Fetching Details from Play Store: %s', package_id)
+    #     det = app(package_id)
+    #     det.pop('descriptionHTML', None)
+    #     det.pop('comments', None)
+    #     description = BeautifulSoup(det['description'], features='lxml')
+    #     det['description'] = description.get_text()
+    #     det['error'] = False
+    #     if 'androidVersionText' not in det:
+    #         det['androidVersionText'] = ''
+    # except Exception:
+    #     det = app_search(package_id)
+    # return det
+    return {'error': True}
 
 
 def app_search(app_id):
