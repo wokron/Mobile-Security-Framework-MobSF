@@ -21,12 +21,12 @@ JDK_URL="https://download.java.net/java/GA/jdk20.0.2/6e380f22cbe7469fa75fb448bd9
 WKH_URL="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/${WKH_FILE}"
 
 # Download and install wkhtmltopdf
-echo "Installing $WKH_FILE ..."
-wget --quiet -O /tmp/${WKH_FILE} "${WKH_URL}" && \
-    dpkg -i /tmp/${WKH_FILE} && \
-    apt-get install -f -y --no-install-recommends && \
-    ln -s /usr/local/bin/wkhtmltopdf /usr/bin && \
-    rm -f /tmp/${WKH_FILE}
+# echo "Installing $WKH_FILE ..."
+# wget --quiet -O /tmp/${WKH_FILE} "${WKH_URL}" && \
+#     dpkg -i /tmp/${WKH_FILE} && \
+#     apt-get install -f -y --no-install-recommends && \
+#     ln -s /usr/local/bin/wkhtmltopdf /usr/bin && \
+#     rm -f /tmp/${WKH_FILE}
 
 # Install OpenJDK
 echo "Installing $JDK_FILE ..."
