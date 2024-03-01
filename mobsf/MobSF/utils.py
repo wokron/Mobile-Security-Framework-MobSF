@@ -119,8 +119,8 @@ def print_version():
     logger.info(env_str)
     find_java_binary()
     check_basic_env()
-    thread = threading.Thread(target=check_update, name='check_update')
-    thread.start()
+    # thread = threading.Thread(target=check_update, name='check_update')
+    # thread.start()
 
 
 def check_update():
@@ -440,19 +440,19 @@ def check_basic_env():
     except ImportError:
         logger.exception('lxml is not installed!')
         os.kill(os.getpid(), signal.SIGTERM)
-    if not is_file_exists(find_java_binary()):
-        logger.error(
-            'JDK 8+ is not available. '
-            'Set JAVA_HOME environment variable'
-            ' or JAVA_DIRECTORY in '
-            '%s', get_config_loc())
-        logger.info('Current Configuration: '
-                    'JAVA_DIRECTORY=%s', settings.JAVA_DIRECTORY)
-        logger.info('Example Configuration:'
-                    '\nJAVA_DIRECTORY = "C:/Program Files/'
-                    'Java/jdk1.7.0_17/bin/"'
-                    '\nJAVA_DIRECTORY = "/usr/bin/"')
-        os.kill(os.getpid(), signal.SIGTERM)
+    # if not is_file_exists(find_java_binary()):
+    #     logger.error(
+    #         'JDK 8+ is not available. '
+    #         'Set JAVA_HOME environment variable'
+    #         ' or JAVA_DIRECTORY in '
+    #         '%s', get_config_loc())
+    #     logger.info('Current Configuration: '
+    #                 'JAVA_DIRECTORY=%s', settings.JAVA_DIRECTORY)
+    #     logger.info('Example Configuration:'
+    #                 '\nJAVA_DIRECTORY = "C:/Program Files/'
+    #                 'Java/jdk1.7.0_17/bin/"'
+    #                 '\nJAVA_DIRECTORY = "/usr/bin/"')
+    #     os.kill(os.getpid(), signal.SIGTERM)
 
 
 def update_local_db(db_name, url, local_file):
